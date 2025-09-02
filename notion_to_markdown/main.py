@@ -7,7 +7,7 @@ class MarkdownProvider:
     def __init__(self, notion: Client):
         self.notion = notion
 
-    def GetMarkdownString(self, page_id: str) -> str:
+    def get_markdown_string(self, page_id: str) -> str:
         n2m = NotionToMarkdown(self.notion)
 
         md_blocks = n2m.page_to_markdown(page_id)
@@ -15,7 +15,7 @@ class MarkdownProvider:
 
         return md_str
 
-    def GetMarkdownStringAsync(self, page_id: str) -> str:
+    def get_markdown_string_async(self, page_id: str) -> str:
         n2m = NotionToMarkdownAsync(self.notion)
 
         md_blocks = asyncio.run(n2m.page_to_markdown(page_id))
