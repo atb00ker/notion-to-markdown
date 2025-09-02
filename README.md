@@ -22,12 +22,12 @@ pip install notion-to-markdown
 ### Sync Version
 
 ```python
-from notion_to_markdown import NotionToMarkdown
+from notion_to_markdown import MarkdownProvider
 from notion_client import Client
 
 notion = Client(auth="your-auth-token")
-n2m = NotionToMarkdown(notion)
-md_str = n2m.GetMarkdownString("page-id")
+n2m = MarkdownProvider(notion)
+md_str = n2m.get_markdown_string("page-id")
 
 with open("output.md", "w") as f:
     f.write(md_str)
@@ -37,11 +37,11 @@ with open("output.md", "w") as f:
 
 ```python
 from notion_client import AsyncClient
-from notion_to_markdown import NotionToMarkdownAsync
+from notion_to_markdown import MarkdownProvider
 
 notion = AsyncClient(auth="your-auth-token")
-n2m = NotionToMarkdownAsync(notion)
-md_str = n2m.GetMarkdownStringAsync("page-id")
+n2m = MarkdownProvider(notion)
+md_str = n2m.get_markdown_string_async("page-id")
 
 with open("output.md", "w") as f:
     f.write(md_str)
