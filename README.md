@@ -1,6 +1,12 @@
-# notion-to-md (Python Version)
+# Notion to Markdown (Python Version)
 
-This is the **Python implementation** of nodejs version of [notion-to-md](https://github.com/souvikinator/notion-to-md), 
+The original author of this work is [Wei Xiang](xiangweiqaz@gmail.com), please go to the [original repository](https://github.com/SwordAndTea/notion-to-md-py) for more details.
+
+I have only audited the code for usage within my company and made minor changes for compatibility with my code.
+
+---
+
+This is the **Python implementation** of nodejs version of [notion-to-md](https://github.com/souvikinator/notion-to-md),
 a tool that converts Notion pages into Markdown files.
 
 ## Installation
@@ -8,7 +14,7 @@ a tool that converts Notion pages into Markdown files.
 Install the package via pip:
 
 ```bash
-pip install notion-to-md-py
+pip install notion-to-markdown
 ```
 
 ## Usage
@@ -16,43 +22,27 @@ pip install notion-to-md-py
 ### Sync Version
 
 ```python
+from notion_to_markdown import NotionToMarkdown
 from notion_client import Client
-from notion_to_md import NotionToMarkdown
-
 
 notion = Client(auth="your-auth-token")
-
 n2m = NotionToMarkdown(notion)
+md_str = n2m.GetMarkdownString("page-id")
 
-# Export a page as a markdown blocks
-md_blocks = n2m.page_to_markdown("page-id")
-
-# Convert markdown blocks to string
-md_str = n2m.to_markdown_string(md_blocks).get('parent')
-
-# Write to a file
 with open("output.md", "w") as f:
     f.write(md_str)
 ```
 
 ### Async Version
-```python
-import asyncio
-from notion_client import AsyncClient
-from notion_to_md import NotionToMarkdownAsync
 
+```python
+from notion_client import AsyncClient
+from notion_to_markdown import NotionToMarkdownAsync
 
 notion = AsyncClient(auth="your-auth-token")
-
 n2m = NotionToMarkdownAsync(notion)
+md_str = n2m.GetMarkdownStringAsync("page-id")
 
-# Export a page as a markdown blocks
-md_blocks = asyncio.run(n2m.page_to_markdown("page-id"))
-
-# Convert markdown blocks to string
-md_str = n2m.to_markdown_string(md_blocks).get('parent')
-
-# Write to a file
 with open("output.md", "w") as f:
     f.write(md_str)
 ```
@@ -64,7 +54,6 @@ Replace `your-auth-token` and `page-id` with the appropriate values from your No
 1. Create an integration in your Notion account and get the `API key`.
 2. Share your database with the integration to allow access.
 3. Retrieve your `Database ID` and `Page ID` from the Notion app.
-
 
 ## Requirements
 

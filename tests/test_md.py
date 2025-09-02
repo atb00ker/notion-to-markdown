@@ -1,5 +1,5 @@
 import pytest
-from notion_to_md.utils import md
+from notion_to_markdown.utils import md
 
 
 def test_callout_without_emoji():
@@ -9,13 +9,16 @@ def test_callout_without_emoji():
 
 def test_callout_with_emoji():
     text = "Call out text content."
-    assert md.callout(
-        text,
-        {
-            "type": "emoji",
-            "emoji": "😍",
-        },
-    ) == f"> 😍 {text}"
+    assert (
+        md.callout(
+            text,
+            {
+                "type": "emoji",
+                "emoji": "😍",
+            },
+        )
+        == f"> 😍 {text}"
+    )
 
 
 def test_markdown_table():
@@ -118,6 +121,7 @@ async def test_image_to_base64_async():
     assert result.startswith(
         "![simple text](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAY"
     )
+
 
 def test_image_to_base64():
     result = md.image(

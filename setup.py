@@ -1,34 +1,34 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="notion-to-md-py",  # Replace with your package name
-    version="0.1.2",
-    packages=find_packages(),  # Automatically include the submodules
+    name="notion-to-markdown",
+    version="0.1.4",
+    packages=find_packages(),
     install_requires=[
-        "httpx",  # Required based on `md.py`
-        "pytablewriter", # Required based on `md.py`
-        "notion-client",  # Required based on references to `notion_client`
+        "httpx",
+        "pytablewriter",
+        "notion-client",
     ],
     extras_require={
         "async": [
-            "asyncio",  # Used in async functionality
+            "asyncio",
         ]
     },
     description="A package to convert Notion content into Markdown format",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/SwordAndTea/notion-to-md-py",
-    author="Wei Xiang",
-    author_email="xiangweiqaz@gmail.com",
+    url="https://github.com/atb00ker/notion-to-markdown",
+    author="Ajay Tripathi",
+    author_email="ajay39in@gmail.com",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.7",
-    keywords="notion markdown converter python",
+    keywords="Convert,Notion,Markdown",
     project_urls={
-        "Bug Tracker": "https://github.com/SwordAndTea/notion-to-md-py/issues",
-        "Source Code": "https://github.com/SwordAndTea/notion-to-md-py",
+        "Bug Tracker": "https://github.com/atb00ker/notion-to-markdown/issues",
+        "Source Code": "https://github.com/atb00ker/notion-to-markdown",
     },
 )
