@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="notion-to-markdown",
-    version="0.1.5",
+    version="0.1.6",
+    license="MIT",
     packages=find_packages(),
     install_requires=[
         "httpx",
@@ -22,7 +23,6 @@ setup(
     author_email="ajay39in@gmail.com",
     classifiers=[
         "Programming Language :: Python :: 3.7",
-        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.7",

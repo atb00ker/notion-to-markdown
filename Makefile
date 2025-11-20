@@ -6,7 +6,7 @@ init:
 	.venv/bin/pip install -r requirements.txt
 
 test:
-	pytest --cov=./notion_to_markdown --cov-report=xml
+	pytest --cov=./notion_to_markdown --cov-report=term-missing --cov-report=html
 
 release:
 	git tag -a v$$(python setup.py --version) -m "Release version $$(python setup.py --version)"

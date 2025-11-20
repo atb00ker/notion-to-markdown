@@ -1,0 +1,7 @@
+notion-client
+setuptools
+httpx
+pytablewriter
+pytest
+pytest-asyncio
+pytest-cov
